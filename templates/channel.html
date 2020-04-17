@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    You are on channel {{ channel }}
+{% endblock %}
+
+{% block body %}
+<p>
+  You have signed in as <span id="username"></span>.
+  <a href="{{ url_for('index') }}">Sign out</a>
+</p>
+<p>
+  Messages
+</p>
+
+    <button type="button" class="btn btn-primary" onclick="goBack()">Go back</button>
+    <script>
+      function goBack() {
+        window.history.back();
+      }
+    </script>
+{% endblock %}
