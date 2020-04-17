@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Register for a nice chat
+{% endblock %}
+
+{% block body %}
+    <p>To begin a chat please specify your display name</p>
+    <form id="form">
+      <input id="name" autocomplete="off" autofocus placeholder="Enter your display name" type="text">
+      <input type="submit" name="" value="Submit">
+    </form>
+    <p id="greeting"></p>
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+{% endblock %}

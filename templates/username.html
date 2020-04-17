@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Hello {{ username }}
+{% endblock %}
+
+{% block body %}
+    <p>
+        {{ message }}
+    </p>
+    <ul>
+      {% for review in reviews %}
+          <li>
+            <p>{{ review.review }}</p>
+            <p>And your rating is {{ review.rate }}</p>
+            <p>
+              {% if review.book_id == books.id %}
+                for {{ books.title }}
+              {% endif %}
+            </p>
+          </li>
+      {% endfor %}
+    </ul>
+{% endblock %}
