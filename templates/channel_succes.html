@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 
 {% block heading %}
-  Registration successful
+  {{ message }}
 {% endblock %}
 
 {% block body %}
-  <p> {{ message }}</p>
+  <p> Go to your channel <a href="{{ url_for('channel', channel_name = channel_name) }}"> {{ channel_name }}</a> </p>
 
   <a href="{{ url_for('index') }}">Go home</a>
 {% endblock %}

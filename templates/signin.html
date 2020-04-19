@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block heading %}
-    Find a book to read
+    Nice chat
     <script src="{{ url_for('static', filename='username.js') }}"></script>
 {% endblock %}
 
@@ -11,12 +11,23 @@
       <a href="{{ url_for('index') }}">Sign out</a>
     </p>
     <p id="channels">
-
+      <ul>
+        {% for channel in channels %}
+          <li>
+            <a href="{{ url_for('channel', channel_name = channel_name) }}">
+            {{ channel }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
     </p>
     <p>
       Create a channel
     </p>
-    
+    <form class="" action="{{ url_for('create_channel') }}" method="post">
+      <input type="text" name="channel_name" value="">
+      <input type="submit" name="" value="Submit">
+    </form>
 
 
 {% endblock %}

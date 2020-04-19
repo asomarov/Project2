@@ -16,18 +16,22 @@ def index():
 def signin():
     username = request.form.get("username")
 
-    return render_template("signin.html")
+    return render_template("signin.html", channels=channels)
 
-#@app.route("/<string:channel>")
-#def channel(channel):
-#    channel_name = request.form.get("channel_name")
-#    flag = False
-#    for item in channels:
-#        if channel_name == item:
-#            flag = True
-#    if flag is False:
-#        channels.append(channel_name)
-#    else:
-#        return render_template("error.html", message="This name of channel is not available")
+@app.route("/create_channel", methods=["POST"])
+def create_channel():
+    channel_name = request.form.get("channel_name")
+    flag = False
+    for item in channels:
+        if channel_name == item:
+            flag = True
+    if flag is False:
+        channels.append(channel_name)
+    else:
+        return render_template("error.html", message="This name of channel is not available")
 
-#    return render_template("channel.html", channel=channel_name)
+    return render_template("channel_succes.html", message="Your channel has been created", channel_name=channel_name)
+
+@app.route("/<string:channel_name>")
+def channel(channel_name):
+    return render_template("channel.html")
