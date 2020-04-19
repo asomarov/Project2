@@ -11,10 +11,11 @@
       <a href="{{ url_for('index') }}">Sign out</a>
     </p>
     <p id="channels">
+      Your channels
       <ul>
         {% for channel in channels %}
           <li>
-            <a href="{{ url_for('channel', channel_name = channel_name) }}">
+            <a href="{{ url_for('channel', channel_name = channel) }}">
             {{ channel }}
             </a>
           </li>
