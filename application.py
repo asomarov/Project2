@@ -32,6 +32,6 @@ def create_channel():
 
     return render_template("channel_succes.html", message="Your channel has been created", channel_name=channel_name)
 
-@app.route("/<string:channel_name>")
+@app.route("/signin/<string:channel_name>")
 def channel(channel_name):
-    return render_template("channel.html")
+    return render_template("channel.html", channel=channel_name)
