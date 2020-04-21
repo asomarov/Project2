@@ -4,4 +4,4 @@
           let name = document.querySelector('#name').value;
           localStorage.setItem('name', name);
       };
-  }
+  });

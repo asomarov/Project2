@@ -35,3 +35,8 @@ def create_channel():
 @app.route("/signin/<string:channel_name>")
 def channel(channel_name):
     return render_template("channel.html", channel=channel_name)
+
+@socketio.on("/signin/<string:channel_name/send message")
+def message(data):
+    message = data["message"]
+    emit("announce message", {"message": message}, broadcast=True)

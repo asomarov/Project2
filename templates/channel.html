@@ -2,7 +2,9 @@
 
 {% block heading %}
     You are on channel {{ channel }}
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
     <script src="{{ url_for('static', filename='username.js') }}"></script>
+    <script src="{{ url_for('static', filename='channel.js') }}"></script>
 {% endblock %}
 
 {% block body %}
@@ -11,9 +13,13 @@
   <a href="{{ url_for('index') }}">Sign out</a>
 </p>
 <p>
-  Messages
+  <ul id="messages">
+  </ul>
 </p>
-
+<form id="message_form">
+  <input id="message" name="message" autocomplete="off" autofocus placeholder="Enter your message" type="text">
+  <input type="submit" name="" value="Submit">
+</form>
     <button type="button" class="btn btn-primary" onclick="goBack()">Go back</button>
     <script>
       function goBack() {
