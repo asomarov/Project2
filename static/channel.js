@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     socket.on('connect', () => {
 
-      document.querySelector('#message_form').onsubmit = function() {
+      document.querySelector('#form').onsubmit = () => {
         const message = document.querySelector('#message').value
         socket.emit('send message', {'message': message});
       };
